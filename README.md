@@ -69,6 +69,13 @@ where $S = \sum_i |\psi_i\rangle\langle\psi_i|$ and $\{|\psi_i\rangle\}$ are Haa
 
 ## Installation
 
+You can install it from PyPi as:
+```bash
+pip install qtom
+```
+
+Or by cloning the repository:
+
 ```bash
 git clone https://github.com/yourusername/quantum-tomography-nn
 cd quantum-tomography-nn
@@ -161,6 +168,13 @@ If you use this library in your research, please cite the original paper:
   publisher={APS}
 }
 ```
+
+## Authors
+
+This project was created by:
+
+- **Manuel A. Garcia**   
+- **Johan Garzón** 
 
 ## License
 

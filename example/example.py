@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""
-Proper minimal example using library functions correctly.
-"""
 
 import numpy as np
 import os
@@ -15,7 +12,7 @@ generate_povms([2], num_states=1000)
 generate_training_data([2], num_states=1000)
 
 # Train the model
-model, history = train_model(2, 'data/quantum_training_data_d2.npz', 'models/demo_model.h5')
+model, history = train_model(2, 'data/quantum_training_data_d2.npz', 'models/demo_model.h5', epochs=5000)
 
 # Test
 from qtom.core.data_generation import get_probabilities, sample_measurements
