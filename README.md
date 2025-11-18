@@ -22,10 +22,9 @@ where $\{\Pi_i\}$ forms a Positive Operator-Valued Measure (POVM) satisfying:
 
 Traditional tomography methods face several challenges:
 
-1. **Exponential scaling**: A d-dimensional system requires $O(d^2)$ measurements
-2. **Positivity constraint**: Reconstructed states must be physically valid (positive semidefinite)
-3. **Noise sensitivity**: Real measurements have finite statistics and noise
-4. **Computational cost**: Maximum likelihood estimation can be slow for large systems
+1. **Positivity constraint**: Reconstructed states must be physically valid (positive semidefinite)
+2. **Noise sensitivity**: Real measurements have finite statistics and noise
+3. **Computational cost**: Maximum likelihood estimation can be slow for large systems
 
 ## Our Solution: Neural Network Approach
 
@@ -39,9 +38,11 @@ $$
 
 #### Cholesky Decomposition
 Any density matrix can be written as:
+
 $$
 \rho = \frac{LL^\dagger}{\text{Tr}(LL^\dagger)}
 $$
+
 where $L$ is lower triangular with:
 - Real diagonal elements
 - Complex off-diagonal elements
@@ -50,16 +51,20 @@ This representation has exactly $d^2$ real parameters and automatically ensures 
 
 #### Hilbert-Schmidt Distance
 The reconstruction quality is measured by:
+
 $$
 D_{HS}(\rho, \sigma) = \sqrt{\text{Tr}((\rho-\sigma)^2)}
 $$
+
 which quantifies the distance between true state $\rho$ and reconstructed state $\sigma$.
 
 #### Square-Root Measurements
 The POVM elements are constructed as:
+
 $$
 \Pi_i = S^{-1/2} |\psi_i\rangle\langle\psi_i| S^{-1/2}
 $$
+
 where $S = \sum_i |\psi_i\rangle\langle\psi_i|$ and $\{|\psi_i\rangle\}$ are Haar-random states.
 
 ## Installation
@@ -114,9 +119,9 @@ print("Predicted state:\n", np.round(pred, 3))
 
 This minimal example demonstrates the complete workflow:
 
-* POVM Generation: Creates a fixed set of measurement operators using generate_povms([2])
+* POVM Generation: Creates a fixed set of measurement operators using generate_povms([2], num_states=1000)
 
-* Generation: Generates random quantum states and their measurement statistics using generate_training_data([2])
+* Generation: Generates random quantum states and their measurement statistics using generate_training_data([2], num_states=1000)
 
 * Network Training: Learns the mapping from probabilities to states using train_model()
 
